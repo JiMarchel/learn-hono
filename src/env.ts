@@ -4,7 +4,8 @@ import { config } from "dotenv"
 
 expand(config())
 const EnvSchema = z.object({
-	PORT: z.coerce.number().default(9999)
+	PORT: z.coerce.number().default(9999),
+	DB_FILE_NAME: z.string().url()
 })
 
 export type env = z.infer<typeof EnvSchema>
